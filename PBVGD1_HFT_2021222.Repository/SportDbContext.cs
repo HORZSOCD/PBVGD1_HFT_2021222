@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using PBVGD1_HFT_2021222.Models;
 
@@ -65,8 +64,8 @@ namespace PBVGD1_HFT_2021222.Repository
                new Product(){ProductNumber = 1, ProductName = "Rockrider ST 50",Price = 89900, BrandId = 1},
                new Product(){ProductNumber = 2, ProductName = "Triban RC 120",Price = 199990, BrandId = 2},
                new Product(){ProductNumber = 3, ProductName = "Rockrider ST 100",Price = 109990, BrandId = 1},
-               new Product(){ProductNumber = 4, ProductName = "Kalenji Run Active Férfi cipő",Price = 9990, BrandId = 4},
-               new Product(){ProductNumber = 5, ProductName = "Aptonia epres-málnás",Price = 1790, BrandId = 6},
+               new Product(){ProductNumber = 4, ProductName = "Kalenji Run Active Man shoes",Price = 9990, BrandId = 4},
+               new Product(){ProductNumber = 5, ProductName = "Aptonia strawberry-raspberry",Price = 1790, BrandId = 6},
             };
 
             modelBuilder.Entity<Sport>().HasData(sports);
