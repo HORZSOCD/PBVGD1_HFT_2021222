@@ -18,6 +18,7 @@ namespace PBVGD1_HFT_2021222.Models
         public string ProductName { get; set; }
         public int Price { get; set; }
 
+        public virtual Brand Brand { get; set; }
         public int BrandId { get; set; }
 
     }

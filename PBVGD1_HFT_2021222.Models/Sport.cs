@@ -17,6 +17,6 @@ namespace PBVGD1_HFT_2021222.Models
 
         public virtual ICollection<Brand> Brands { get; set; }
 
-       
+        
     }
 }

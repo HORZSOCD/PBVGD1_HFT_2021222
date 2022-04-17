@@ -19,7 +19,7 @@ namespace PBVGD1_HFT_2021222.Models
         public string BrandName { get; set; }
 
         public int SportId { get; set; }
-
+        public virtual Sport Sport { get; set; }
         public virtual ICollection<Product> Products { get; set; }
 
         
