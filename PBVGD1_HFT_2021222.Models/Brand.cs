@@ -18,9 +18,10 @@ namespace PBVGD1_HFT_2021222.Models
         [StringLength(50)]
         public string BrandName { get; set; }
 
-        [ForeignKey(nameof(Sport))]
         public int SportId { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }
+
+        
     }
 }

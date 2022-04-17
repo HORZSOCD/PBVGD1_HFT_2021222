@@ -18,7 +18,7 @@ namespace PBVGD1_HFT_2021222.Models
         public string ProductName { get; set; }
         public int Price { get; set; }
 
-        [ForeignKey(nameof(Brand))]
         public int BrandId { get; set; }
+
     }
 }

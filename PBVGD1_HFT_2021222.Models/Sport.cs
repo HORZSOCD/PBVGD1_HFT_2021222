@@ -16,5 +16,7 @@ namespace PBVGD1_HFT_2021222.Models
         public string SportName { get; set; }
 
         public virtual ICollection<Brand> Brands { get; set; }
+
+       
     }
 }
