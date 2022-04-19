@@ -19,11 +19,9 @@ namespace PBVGD1_HFT_2021222.Repository
         {
             if (!optionsBuilder.IsConfigured)
             {
-                string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Sport.mdf;Integrated Security=True;MultipleActiveResultSets=True";
-
-                optionsBuilder
+               optionsBuilder
                     .UseLazyLoadingProxies()
-                    .UseSqlServer(conn);
+                    .UseInMemoryDatabase("Sports");
             }
         }
 
