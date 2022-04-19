@@ -11,7 +11,7 @@ namespace PBVGD1_HFT_2021222.Models
     public class Product
     {
         [Key]
-        public int ProductNumber { get; set; }
+        public int ProductId { get; set; }
 
         [Required]
         [StringLength(50)]

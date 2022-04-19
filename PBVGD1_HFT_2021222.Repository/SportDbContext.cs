@@ -61,11 +61,11 @@ namespace PBVGD1_HFT_2021222.Repository
             };
             var products = new List<Product>()
             {
-               new Product(){ProductNumber = 1, ProductName = "Rockrider ST 50",Price = 89900, BrandId = 1},
-               new Product(){ProductNumber = 2, ProductName = "Triban RC 120",Price = 199990, BrandId = 2},
-               new Product(){ProductNumber = 3, ProductName = "Rockrider ST 100",Price = 109990, BrandId = 1},
-               new Product(){ProductNumber = 4, ProductName = "Kalenji Run Active Man shoes",Price = 9990, BrandId = 4},
-               new Product(){ProductNumber = 5, ProductName = "Aptonia strawberry-raspberry",Price = 1790, BrandId = 6},
+               new Product(){ProductId = 1, ProductName = "Rockrider ST 50",Price = 89900, BrandId = 1},
+               new Product(){ProductId = 2, ProductName = "Triban RC 120",Price = 199990, BrandId = 2},
+               new Product(){ProductId = 3, ProductName = "Rockrider ST 100",Price = 109990, BrandId = 1},
+               new Product(){ProductId = 4, ProductName = "Kalenji Run Active Man shoes",Price = 9990, BrandId = 4},
+               new Product(){ProductId = 5, ProductName = "Aptonia strawberry-raspberry",Price = 1790, BrandId = 6},
             };
 
             modelBuilder.Entity<Sport>().HasData(sports);
