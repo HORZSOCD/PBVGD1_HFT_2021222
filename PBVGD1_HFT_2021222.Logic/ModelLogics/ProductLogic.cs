@@ -1,6 +1,7 @@
 ﻿using PBVGD1_HFT_2021222.Models;
 using PBVGD1_HFT_2021222.Repository;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace PBVGD1_HFT_2021222.Logic
@@ -42,5 +43,6 @@ namespace PBVGD1_HFT_2021222.Logic
         {
             this.productRepo.Update(item);
         }
+
     }
 }

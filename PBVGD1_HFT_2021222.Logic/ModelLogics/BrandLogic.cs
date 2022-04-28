@@ -42,5 +42,6 @@ namespace PBVGD1_HFT_2021222.Logic
         {
             this.brandRepo.Update(item);
         }
+
     }
 }

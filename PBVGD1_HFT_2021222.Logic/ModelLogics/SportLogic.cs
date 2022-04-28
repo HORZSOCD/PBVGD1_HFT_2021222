@@ -42,5 +42,14 @@ namespace PBVGD1_HFT_2021222.Logic
         {
             this.sportRepo.Update(item);
         }
+
+        //Non-crud methods
+        public int? BrandSum()
+        {
+            return this.sportRepo
+                 .ReadAll()
+                 .Sum(b => b.Brands.Count);
+        }
+
     }
 }
