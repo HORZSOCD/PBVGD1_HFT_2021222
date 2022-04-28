@@ -15,6 +15,8 @@ namespace PBVGD1_HFT_2021222.Logic
         }
         public void Create(Sport item)
         {
+            if (item.SportName.Length < 3)
+                throw new ArgumentException("Sport name must be at least 3 characher long.");
             this.sportRepo.Create(item);
         }
 
@@ -40,6 +42,7 @@ namespace PBVGD1_HFT_2021222.Logic
         {
             this.sportRepo.Update(item);
         }
+
     }
 
 }
