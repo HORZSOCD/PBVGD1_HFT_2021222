@@ -44,5 +44,29 @@ namespace PBVGD1_HFT_2021222.Logic
             this.productRepo.Update(item);
         }
 
+
+
+
+
+
+        //Non-crud methods
+        public IEnumerable<BrandAverage> AveragePricePerBrand()
+        {
+
+            return from b in this.productRepo.ReadAll()
+                   group b by b.Brand.BrandName into g
+                   select new BrandAverage
+                   {
+                       Name = g.Key,
+                       Average = g.Average(p => p.Price)
+                   };
+
+        }
+
+        public class BrandAverage
+        {
+            public double Average { get; set; }
+            public string Name { get; set; }
+        }
     }
 }
