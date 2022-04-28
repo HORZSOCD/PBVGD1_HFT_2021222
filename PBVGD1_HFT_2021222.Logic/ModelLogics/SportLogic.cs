@@ -44,7 +44,7 @@ namespace PBVGD1_HFT_2021222.Logic
         }
 
         //Non-crud methods
-        public int? BrandSum()
+        public int BrandSum()
         {
             return this.sportRepo
                  .ReadAll()

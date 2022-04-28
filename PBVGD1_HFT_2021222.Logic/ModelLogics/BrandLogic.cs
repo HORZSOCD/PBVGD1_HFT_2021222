@@ -43,5 +43,25 @@ namespace PBVGD1_HFT_2021222.Logic
             this.brandRepo.Update(item);
         }
 
+        //Non-crud methods
+        public int ProductSum()
+        {
+            return this.brandRepo
+                .ReadAll()
+                .Sum(b => b.Products.Count);
+        }
+
+        public double AverageProductPerBrand()
+        {
+            return this.brandRepo
+                .ReadAll()
+                .Select(b => b.Products.Count)
+                .Average();
+        }
+
+
+
+
+
     }
 }
