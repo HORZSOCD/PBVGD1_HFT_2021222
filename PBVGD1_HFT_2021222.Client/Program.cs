@@ -46,6 +46,7 @@ namespace PBVGD1_HFT_2021222.Client
 
         private static void Update(string entity)
         {
+            Console.Clear();
             if (entity == "Sport")
             {
                 Console.Write("Enter sport's id to update: ");
@@ -78,6 +79,7 @@ namespace PBVGD1_HFT_2021222.Client
 
         private static void Delete(string entity)
         {
+            Console.Clear();
             if (entity == "Sport")
             {
                 Console.Write("Enter sport's id to delete: ");
@@ -101,6 +103,7 @@ namespace PBVGD1_HFT_2021222.Client
 
         private static void Create(string entity)
         {
+            Console.Clear();
             if (entity == "Sport")
             {
                 Console.Write("Enter sport name: ");
@@ -110,40 +113,48 @@ namespace PBVGD1_HFT_2021222.Client
             {
                 Console.Write("Enter brand name: ");
                 string name = Console.ReadLine();
-                rest.Post(new Brand() { BrandName = name }, "brand");
+                Console.Write("Enter sport id: ");
+                int id= int.Parse(Console.ReadLine());
+                rest.Post(new Brand() { BrandName = name, SportId=id }, "brand");
             }else if (entity == "Product")
             {
                 Console.Write("Enter product name: ");
                 string name = Console.ReadLine();
-                rest.Post(new Product() { ProductName = name }, "product");
+                Console.Write("Enter brand Id: ");
+                int id = int.Parse(Console.ReadLine());
+                Console.Write("Enter price: ");
+                int price= int.Parse(Console.ReadLine());
+                rest.Post(new Product() { ProductName = name, BrandId = id, Price= price }, "product");
             }
         }
 
         private static void List(string entity)
         {
+            Console.Clear();
             if (entity== "Sport")
             {
                 List<Sport> sports = rest.Get<Sport>("sport");
                 foreach (Sport sport in sports)
                 {
-                    Console.WriteLine($"{sport.SportName} - ID: {sport.SportId}");
+                    Console.WriteLine($"\nID:\t{sport.SportId}\nName: {sport.SportName}");
                 }
             }else if (entity == "Brand")
             {
                 List<Brand> brands = rest.Get<Brand>("brand");
                 foreach (Brand brand in brands)
                 {
-                    Console.WriteLine($"{brand.BrandName} - ID: {brand.BrandId}");
+                    Console.WriteLine($"\nID:\t{brand.BrandId}\nSport: {brand.Sport.SportName}\nName: {brand.BrandName}");
                 }
             }else if (entity == "Product")
             {
                 List<Product> products = rest.Get<Product>("product");
                 foreach (Product product in products)
                 {
-                    Console.WriteLine($"{product.ProductName} - ID: {product.ProductId}");
+                    Console.WriteLine($"\nID:\t{product.ProductId}\nName: {product.ProductName}\nPrice: {product.Price}\nBrand: {product.Brand.BrandName}");
                 }
             }
-            Console.ReadLine();
+            Console.WriteLine("\nPress any key to continue.");
+            Console.ReadKey();
         }
     }
 }

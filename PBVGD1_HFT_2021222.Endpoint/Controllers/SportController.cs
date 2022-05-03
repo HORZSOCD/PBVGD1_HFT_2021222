@@ -14,6 +14,7 @@ namespace PBVGD1_HFT_2021222.Endpoint.Controllers
         {
             this.logic = logic;
         }
+        
         [HttpGet]
         public IEnumerable<Sport> ReadAll()
         {
@@ -43,5 +44,8 @@ namespace PBVGD1_HFT_2021222.Endpoint.Controllers
         {
             this.logic.Delete(id);
         }
+
+        
+        
     }
 }

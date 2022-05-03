@@ -14,6 +14,8 @@ namespace PBVGD1_HFT_2021222.Logic
         {
             this.sportRepo = sportRepo;
         }
+
+        //CRUD
         public void Create(Sport item)
         {
             if (item.SportName.Length < 3)
@@ -54,12 +56,25 @@ namespace PBVGD1_HFT_2021222.Logic
         }
 
         //Non-crud methods
-        public int BrandSum()
+        public IEnumerable<Brands> BrandSum()
         {
-            return this.sportRepo
-                 .ReadAll()
-                 .Sum(b => b.Brands.Count);
+            return from b in this.sportRepo.ReadAll()
+                   group b by b.SportName into g
+                   select new Brands
+                   {
+                       Name = g.Key,
+                       BrandSum = g.Sum(s => s.Brands.Count())
+                   };
         }
 
+        public class Brands
+        {
+            public double BrandSum { get; set; }
+            public string Name { get; set; }
+        }
+
+
+
+        
     }
 }

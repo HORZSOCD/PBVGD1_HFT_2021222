@@ -14,6 +14,7 @@ namespace PBVGD1_HFT_2021222.Logic
         {
             this.brandRepo = brandRepo;
         }
+        //Crud methods
         public void Create(Brand item)
         {
             if (item.BrandName.Length < 3)
@@ -45,20 +46,36 @@ namespace PBVGD1_HFT_2021222.Logic
         }
 
         //Non-crud methods
-        public int ProductSum()
+        public IEnumerable<Products> PruductSum()
         {
-            return this.brandRepo
-                .ReadAll()
-                .Sum(b => b.Products.Count);
+            return from b in this.brandRepo.ReadAll()
+                   group b by b.BrandName into g
+                   select new Products
+                   {
+                       Name = g.Key,
+                       ProductSum = g.Sum(s => s.Products.Count())
+                   };
         }
 
-        public double AverageProductPerBrand()
+        public class Products
+        {
+            public double ProductSum { get; set; }
+            public string Name { get; set; }
+        }
+
+        public double? AverageProductPerBrand()
         {
             return this.brandRepo
                 .ReadAll()
                 .Select(b => b.Products.Count)
                 .Average();
         }
+
+
+        
+
+
+
 
 
 
