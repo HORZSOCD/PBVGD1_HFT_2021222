@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace PBVGD1_HFT_2021222.Models
@@ -20,6 +21,8 @@ namespace PBVGD1_HFT_2021222.Models
 
         public int SportId { get; set; }
         public virtual Sport Sport { get; set; }
+
+        [JsonIgnore]
         public virtual ICollection<Product> Products { get; set; }
 
         

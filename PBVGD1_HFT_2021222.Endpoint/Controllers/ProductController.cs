@@ -10,25 +10,21 @@ namespace PBVGD1_HFT_2021222.Endpoint.Controllers
     public class ProductController : ControllerBase
     {
         IProductLogic logic;
-
         public ProductController(IProductLogic logic)
         {
             this.logic = logic;
         }
-
         [HttpGet]
         public IEnumerable<Product> ReadAll()
         {
             return this.logic.ReadAll();
         }
 
-
         [HttpGet("{id}")]
         public Product Read(int id)
         {
             return this.logic.Read(id);
         }
-
 
         [HttpPost]
         public void Create([FromBody] Product value)
@@ -43,7 +39,7 @@ namespace PBVGD1_HFT_2021222.Endpoint.Controllers
             this.logic.Update(value);
         }
 
-        // DELETE api/<SportController>/5
+
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
