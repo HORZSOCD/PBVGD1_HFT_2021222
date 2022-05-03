@@ -23,6 +23,7 @@ namespace PBVGD1_HFT_2021222.Repository
         public void Delete(int id)
         {
             ctx.Set<T>().Remove(Read(id));
+            ctx.SaveChanges();
         }
 
 

@@ -23,7 +23,16 @@ namespace PBVGD1_HFT_2021222.Logic
 
         public void Delete(int id)
         {
-            this.sportRepo.Delete(id);
+            try
+            {
+                this.sportRepo.Delete(id);
+
+            }
+            catch (ArgumentNullException)
+            {
+                throw new ArgumentNullException("Id does not exist.");
+            }
+            
         }
 
         public Sport Read(int id)
