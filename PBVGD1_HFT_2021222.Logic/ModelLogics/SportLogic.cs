@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using PBVGD1_HFT_2021222.Models;
 using PBVGD1_HFT_2021222.Repository;
@@ -33,7 +34,7 @@ namespace PBVGD1_HFT_2021222.Logic
             return sport;
         }
 
-        public IQueryable<Sport> ReadAll()
+        public IEnumerable<Sport> ReadAll()
         {
             return this.sportRepo.ReadAll();
         }

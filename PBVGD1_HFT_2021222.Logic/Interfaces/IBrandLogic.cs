@@ -1,4 +1,5 @@
 ﻿using PBVGD1_HFT_2021222.Models;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace PBVGD1_HFT_2021222.Logic
@@ -8,7 +9,7 @@ namespace PBVGD1_HFT_2021222.Logic
         void Create(Brand item);
         void Delete(int id);
         Brand Read(int id);
-        IQueryable<Brand> ReadAll();
+        IEnumerable<Brand> ReadAll();
         void Update(Brand item);
     }
 }

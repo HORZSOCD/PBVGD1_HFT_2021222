@@ -34,7 +34,7 @@ namespace PBVGD1_HFT_2021222.Logic
             return product;
         }
 
-        public IQueryable<Product> ReadAll()
+        public IEnumerable<Product> ReadAll()
         {
             return this.productRepo.ReadAll();
         }
