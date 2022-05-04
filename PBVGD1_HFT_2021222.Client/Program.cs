@@ -12,7 +12,7 @@ namespace PBVGD1_HFT_2021222.Client
         static RestService rest;
         static void Main(string[] args)
         {
-            rest = new RestService("http://localhost:14992/", "sport");
+            rest = new RestService("http://localhost:44553/");
 
             var sportSubMenu = new ConsoleMenu(args, level: 1)
                 .Add("List", () => List("Sport"))
@@ -35,11 +35,21 @@ namespace PBVGD1_HFT_2021222.Client
                 .Add("Update", () => Update("Product"))
                 .Add("Exit", ConsoleMenu.Close);
 
+            var nonCrud = new ConsoleMenu(args, level: 1)
+                .Add("BrandSum", () => ASD());
+                //.Add("Create", () => Create("Product"))
+                //.Add("Delete", () => Delete("Product"))
+                //.Add("Update", () => Update("Product"))
+                //.Add("Exit", ConsoleMenu.Close);
+
             var menu = new ConsoleMenu(args, level: 0)
                 .Add("Sports", () => sportSubMenu.Show())
                 .Add("Brands", () => brandSubMenu.Show())
                 .Add("Products", () => productSubMenu.Show())
+                .Add("Non-crud", () => nonCrud.Show())
                 .Add("Exit", ConsoleMenu.Close);
+
+            
 
             menu.Show();
         }
@@ -156,5 +166,17 @@ namespace PBVGD1_HFT_2021222.Client
             Console.WriteLine("\nPress any key to continue.");
             Console.ReadKey();
         }
+
+
+        private static void ASD()
+        {
+            var brands = rest.Get<Brands>("/stat/BrandSum");
+            foreach (var item in brands)
+            {
+                Console.WriteLine(item.Name+" "+item.BrandSum);
+            }
+            Console.ReadKey();
+        }
+
     }
 }

@@ -67,11 +67,7 @@ namespace PBVGD1_HFT_2021222.Logic
                    };
         }
 
-        public class Brands
-        {
-            public double BrandSum { get; set; }
-            public string Name { get; set; }
-        }
+       
 
 
 

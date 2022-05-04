@@ -14,6 +14,6 @@ namespace PBVGD1_HFT_2021222.Logic
         void Update(Sport item);
 
         //Non-crud
-        IEnumerable<SportLogic.Brands> BrandSum();
+        IEnumerable<Brands> BrandSum();
     }
 }

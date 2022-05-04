@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace PBVGD1_HFT_2021222.Endpoint.Controllers
 {
-    [Route("[controller]")]
+    [Route("/[controller]")]
     [ApiController]
     public class SportController : ControllerBase
     {
