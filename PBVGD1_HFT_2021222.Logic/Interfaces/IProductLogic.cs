@@ -14,6 +14,8 @@ namespace PBVGD1_HFT_2021222.Logic
         void Update(Product item);
         //Non-crud
         IEnumerable<PriceAverage> AveragePricePerBrand();
+        IEnumerable<ProductsSum> PruductsUnder10000Huf();
+        IEnumerable<Product> ProductsInOrder();
 
 
     }

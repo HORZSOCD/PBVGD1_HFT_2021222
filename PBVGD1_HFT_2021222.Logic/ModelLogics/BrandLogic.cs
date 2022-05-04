@@ -47,18 +47,6 @@ namespace PBVGD1_HFT_2021222.Logic
         }
 
         //Non-crud methods
-        public IEnumerable<Products> PruductSum()
-        {
-            return from b in this.brandRepo.ReadAll()
-                   group b by b.BrandName into g
-                   select new Products
-                   {
-                       Name = g.Key,
-                       ProductSum = g.Sum(s => s.Products.Count())
-                   };
-        }
-
-       
 
         public IEnumerable<AverageBrand> AverageProductPerBrand()
         {
@@ -71,6 +59,7 @@ namespace PBVGD1_HFT_2021222.Logic
                    };
         }
 
+        
 
         
 

@@ -62,10 +62,46 @@ namespace PBVGD1_HFT_2021222.Logic
 
         }
 
-        
+        public IEnumerable<ProductsSum> PruductsUnder10000Huf()
+        {
+            var products = this.productRepo.ReadAll()
+                .Where(p=>p.Price<10000);
+
+            return from b in products
+                   group b by b.ProductName into g
+                   select new ProductsSum
+                   {
+
+                       Name = g.Key
+                   };
+        }
+
+        public IEnumerable<Product> ProductsInOrder()
+        {
+
+           
+
+            return from b in this.productRepo.ReadAll()
+                   orderby b.ProductName
+                   group b by b.ProductName into g 
+                   select new Product
+                   {
+                       ProductName = g.Key
+                   };
+            //var products = this.productRepo.ReadAll()
+            //    .Where(p => p.Price < 10000);
+
+            //return from b in products
+            //       group b by b.ProductName into g
+            //       select new ProductsSum
+            //       {
+
+            //           Name = g.Key
+            //       };
+        }
 
 
-       
+
 
 
     }

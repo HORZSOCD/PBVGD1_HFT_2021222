@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace PBVGD1_HFT_2021222.Models
 {
-    public class Products
+    public class ProductsSum
     {
-        public double ProductSum { get; set; }
         public string Name { get; set; }
     }
 }

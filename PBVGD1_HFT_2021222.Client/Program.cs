@@ -38,10 +38,10 @@ namespace PBVGD1_HFT_2021222.Client
             var nonCrud = new ConsoleMenu(args, level: 1)
                 .Add("Brand Sum", () => BrandSum())
                 .Add("Average Price", () => AveragePricePerBrand())
-                .Add("Produc tSum", () => ProductSum())
                 .Add("Average products per brand", () => AverageProductPerBrand())
+                .Add("Products under 10000Huf", () => PruductsUnder10000Huf())
+                .Add("Products in order by name", ()=> ProductsInOrder())
                 .Add("Exit", ConsoleMenu.Close);
-            //.Add("Exit", ConsoleMenu.Close);
 
             var menu = new ConsoleMenu(args, level: 0)
                 .Add("Sports", () => sportSubMenu.Show())
@@ -169,7 +169,7 @@ namespace PBVGD1_HFT_2021222.Client
         }
 
 
-        private static void BrandSum()
+        public static void BrandSum()
         {
             var brands = rest.Get<Brands>("/stat/BrandSum");
             foreach (var item in brands)
@@ -184,27 +184,38 @@ namespace PBVGD1_HFT_2021222.Client
             var brands = rest.Get<PriceAverage>("/stat/AveragePricePerBrand");
             foreach (var item in brands)
             {
-                Console.WriteLine(item.Name + ": " + item.AveragePrice);
+                Console.WriteLine(item.Name + ": " + Math.Round(item.AveragePrice,2)+"Huf");
             }
             Console.ReadKey();
         }
 
-        public static void ProductSum()
-        {
-            var products = rest.Get<Products>("/stat/ProductSum");
-            foreach (var item in products)
-            {
-                Console.WriteLine(item.Name + ": " + item.ProductSum);
-            }
-            Console.ReadKey();
-        }
-
+        
         public static void AverageProductPerBrand()
         {
             var products = rest.Get<AverageBrand>("/stat/AverageProductPerBrand");
             foreach (var item in products)
             {
                 Console.WriteLine(item.Name + ": " + item.Proucts);
+            }
+            Console.ReadKey();
+        }
+
+        public static void PruductsUnder10000Huf()
+        {
+            var products = rest.Get<ProductsSum>("/stat/PruductsUnder10000Huf");
+            foreach (var item in products)
+            {
+                Console.WriteLine(item.Name);
+            }
+            Console.ReadKey();
+        }
+
+        public static void ProductsInOrder()
+        {
+            var products = rest.Get<Product>("/stat/ProductsInOrder");
+            foreach (var item in products)
+            {
+                Console.WriteLine(item.ProductName);
             }
             Console.ReadKey();
         }
