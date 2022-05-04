@@ -168,6 +168,48 @@ namespace PBVGD1_HFT_2021222.Test
             mockProductRepo.Verify(x => x.Create(product), Times.Once);
 
         }
+
+        [Test]
+        public void AveragePricePerBrand()
+        {
+            var actual = productlogic.AveragePricePerBrand().ToList();
+            
+            var expected = new List<PriceAverage>()
+            {
+                new PriceAverage
+                {
+                    Name = "Kipsta",
+                    AveragePrice = 1295
+                }
+            };
+                
+            
+            Assert.AreEqual(expected, actual);
+        }
+
+
+        [Test]
+        public void ProductsInOrder()
+        {
+            var actual = productlogic.ProductsInOrder().ToList();
+
+            var expected = new List<Product>()
+            {
+                new Product
+                {
+                    ProductName = "Kipsta soccer shoes red"
+
+                },
+                new Product
+                {
+                    ProductName = "Kipsta soccer socks"
+                }
+            };
+
+
+            ;
+            Assert.AreEqual(expected, actual);
+        }
     }
 
 }

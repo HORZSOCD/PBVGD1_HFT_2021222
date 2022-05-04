@@ -21,5 +21,21 @@ namespace PBVGD1_HFT_2021222.Models
         public virtual Brand Brand { get; set; }
         public int BrandId { get; set; }
 
+        public override bool Equals(object obj)
+        {
+            Product b = obj as Product;
+            if (b == null)
+                return false;
+            else
+            {
+                return ProductName == b.ProductName;
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(this.ProductName);
+        }
+
     }
 }

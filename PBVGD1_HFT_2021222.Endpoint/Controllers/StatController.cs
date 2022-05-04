@@ -49,6 +49,9 @@ namespace PBVGD1_HFT_2021222.Endpoint.Controllers
         public IEnumerable<Product> ProductsInOrder()
         {
             return this.productLogic.ProductsInOrder();
+            ;
         }
+
+
     }
 }
