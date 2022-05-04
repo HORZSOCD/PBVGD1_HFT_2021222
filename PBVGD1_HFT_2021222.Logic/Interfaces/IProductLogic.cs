@@ -13,7 +13,7 @@ namespace PBVGD1_HFT_2021222.Logic
         IEnumerable<Product> ReadAll();
         void Update(Product item);
         //Non-crud
-        IEnumerable<ProductLogic.PriceAverage> AveragePricePerBrand();
+        IEnumerable<PriceAverage> AveragePricePerBrand();
 
 
     }

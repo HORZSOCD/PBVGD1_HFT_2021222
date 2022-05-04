@@ -62,11 +62,7 @@ namespace PBVGD1_HFT_2021222.Logic
 
         }
 
-        public class PriceAverage
-        {
-            public double AveragePrice { get; set; }
-            public string Name { get; set; }
-        }
+        
 
 
        

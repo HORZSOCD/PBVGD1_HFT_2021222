@@ -36,11 +36,12 @@ namespace PBVGD1_HFT_2021222.Client
                 .Add("Exit", ConsoleMenu.Close);
 
             var nonCrud = new ConsoleMenu(args, level: 1)
-                .Add("BrandSum", () => ASD());
-                //.Add("Create", () => Create("Product"))
-                //.Add("Delete", () => Delete("Product"))
-                //.Add("Update", () => Update("Product"))
-                //.Add("Exit", ConsoleMenu.Close);
+                .Add("Brand Sum", () => BrandSum())
+                .Add("Average Price", () => AveragePricePerBrand())
+                .Add("Produc tSum", () => ProductSum())
+                .Add("Average products per brand", () => AverageProductPerBrand())
+                .Add("Exit", ConsoleMenu.Close);
+            //.Add("Exit", ConsoleMenu.Close);
 
             var menu = new ConsoleMenu(args, level: 0)
                 .Add("Sports", () => sportSubMenu.Show())
@@ -168,7 +169,7 @@ namespace PBVGD1_HFT_2021222.Client
         }
 
 
-        private static void ASD()
+        private static void BrandSum()
         {
             var brands = rest.Get<Brands>("/stat/BrandSum");
             foreach (var item in brands)
@@ -178,5 +179,34 @@ namespace PBVGD1_HFT_2021222.Client
             Console.ReadKey();
         }
 
+        public static void AveragePricePerBrand()
+        {
+            var brands = rest.Get<PriceAverage>("/stat/AveragePricePerBrand");
+            foreach (var item in brands)
+            {
+                Console.WriteLine(item.Name + ": " + item.AveragePrice);
+            }
+            Console.ReadKey();
+        }
+
+        public static void ProductSum()
+        {
+            var products = rest.Get<Products>("/stat/ProductSum");
+            foreach (var item in products)
+            {
+                Console.WriteLine(item.Name + ": " + item.ProductSum);
+            }
+            Console.ReadKey();
+        }
+
+        public static void AverageProductPerBrand()
+        {
+            var products = rest.Get<AverageBrand>("/stat/AverageProductPerBrand");
+            foreach (var item in products)
+            {
+                Console.WriteLine(item.Name + ": " + item.Proucts);
+            }
+            Console.ReadKey();
+        }
     }
 }

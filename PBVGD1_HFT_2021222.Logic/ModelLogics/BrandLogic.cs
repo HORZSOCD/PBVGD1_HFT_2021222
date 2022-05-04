@@ -1,6 +1,7 @@
 ﻿using PBVGD1_HFT_2021222.Models;
 using PBVGD1_HFT_2021222.Repository;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -57,18 +58,17 @@ namespace PBVGD1_HFT_2021222.Logic
                    };
         }
 
-        public class Products
-        {
-            public double ProductSum { get; set; }
-            public string Name { get; set; }
-        }
+       
 
-        public double? AverageProductPerBrand()
+        public IEnumerable<AverageBrand> AverageProductPerBrand()
         {
-            return this.brandRepo
-                .ReadAll()
-                .Select(b => b.Products.Count)
-                .Average();
+            return from b in this.brandRepo.ReadAll()
+                   group b by b.BrandName into g
+                   select new AverageBrand
+                   {
+                       Name = g.Key,
+                       Proucts = g.Sum(a=>a.Products.Count)
+                   };
         }
 
 

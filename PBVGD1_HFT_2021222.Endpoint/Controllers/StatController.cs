@@ -22,20 +22,16 @@ namespace PBVGD1_HFT_2021222.Endpoint.Controllers
 
 
         [HttpGet]
-        public double? AverageProductPerBrand()
+        public IEnumerable<AverageBrand> AverageProductPerBrand()
         {
             return this.brandLogic.AverageProductPerBrand();
         }
 
-
         [HttpGet]
-        public IEnumerable<ProductLogic.PriceAverage> AveragePricePerBrand()
+        public IEnumerable<PriceAverage> AveragePricePerBrand()
         {
             return this.productLogic.AveragePricePerBrand();
         }
-
-        
-
 
         [HttpGet]
         public IEnumerable<Brands> BrandSum()
@@ -44,7 +40,7 @@ namespace PBVGD1_HFT_2021222.Endpoint.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<BrandLogic.Products> ProductSum()
+        public IEnumerable<Products> ProductSum()
         {
             return this.brandLogic.PruductSum();
         }

@@ -14,7 +14,7 @@ namespace PBVGD1_HFT_2021222.Logic
         void Update(Brand item);
         //Non-crud
         
-        double? AverageProductPerBrand();
-        IEnumerable<BrandLogic.Products> PruductSum();
+        IEnumerable<AverageBrand> AverageProductPerBrand();
+        IEnumerable<Products> PruductSum();
     }
 }
