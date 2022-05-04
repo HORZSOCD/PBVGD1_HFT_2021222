@@ -38,7 +38,7 @@ namespace PBVGD1_HFT_2021222.Client
             var nonCrud = new ConsoleMenu(args, level: 1)
                 .Add("Brand Sum", () => BrandSum())
                 .Add("Average Price", () => AveragePricePerBrand())
-                .Add("Average products per brand", () => AverageProductPerBrand())
+                .Add("Products sum brand", () => AverageProductPerBrand())
                 .Add("Products under 10000Huf", () => PruductsUnder10000Huf())
                 .Add("Products in order by name", ()=> ProductsInOrder())
                 .Add("Exit", ConsoleMenu.Close);
