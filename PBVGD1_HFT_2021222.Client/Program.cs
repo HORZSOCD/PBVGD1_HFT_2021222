@@ -205,7 +205,7 @@ namespace PBVGD1_HFT_2021222.Client
             var products = rest.Get<ProductsSum>("/stat/PruductsUnder10000Huf");
             foreach (var item in products)
             {
-                Console.WriteLine(item.Name);
+                Console.WriteLine(item.Name+": "+item.Price);
             }
             Console.ReadKey();
         }

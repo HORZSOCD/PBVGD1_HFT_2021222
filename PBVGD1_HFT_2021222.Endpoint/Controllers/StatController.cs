@@ -42,7 +42,7 @@ namespace PBVGD1_HFT_2021222.Endpoint.Controllers
         [HttpGet]
         public IEnumerable<ProductsSum> PruductsUnder10000Huf()
         {
-            return this.productLogic.PruductsUnder10000Huf();
+            return this.brandLogic.PruductsUnder10000Huf();
         }
 
         [HttpGet]

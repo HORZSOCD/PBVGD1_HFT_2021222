@@ -10,5 +10,7 @@ namespace PBVGD1_HFT_2021222.Models
     {
         public double AveragePrice { get; set; }
         public string Name { get; set; }
+
+        
     }
 }

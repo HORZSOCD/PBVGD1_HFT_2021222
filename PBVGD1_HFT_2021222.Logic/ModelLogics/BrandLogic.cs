@@ -55,20 +55,22 @@ namespace PBVGD1_HFT_2021222.Logic
                    select new AverageBrand
                    {
                        Name = g.Key,
-                       Proucts = g.Sum(a=>a.Products.Count)
+                       Proucts = g.Sum(a => a.Products.Count)
                    };
         }
 
-        
-
-        
-
-
-
-
-
-
-
-
+        public IEnumerable<ProductsSum> PruductsUnder10000Huf()
+        {
+            return (from x in this.brandRepo.ReadAll()
+                   from product in x.Products
+                   where product.Price < 10000
+                   group product by product.ProductName into g
+                   select new ProductsSum
+                   {
+                       Name = g.Key,
+                       Price = g.Select(x => x.Price).FirstOrDefault()
+                   }).OrderBy(x => x.Price);
+            
+        }
     }
 }
